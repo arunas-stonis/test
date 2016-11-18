@@ -1,0 +1,86 @@
+entity ExerciseCategory {
+	id Integer required,
+	name String required
+}
+
+entity Invitation {
+    id Integer required,
+	createdAt ZonedDateTime required,
+    validUntil ZonedDateTime required,
+    catageryId Integer required,
+    customerId Integer
+}
+
+entity Customer {
+	id Integer required,
+	createdAt ZonedDateTime required,
+    name String required,
+    accountId Integer required,
+    email String required,
+	status CustomerStatus required
+}
+
+enum CustomerStatus {
+    APPLIED, INVITED, REGISTERED, CLOSED
+}
+
+entity Partner {
+	id Integer required,
+    createdAt ZonedDateTime required,
+	accountId Integer required,
+    name String required
+}
+
+entity ExerciseFacility {
+	id Integer required,
+    createdAt ZonedDateTime required,
+	name String required,
+    categoryId Integer required,
+	address String required,
+    description String required
+}
+
+entity Pass {
+	id Integer required,
+	createdAt ZonedDateTime required,
+    facilityId Integer required,
+    customerId Integer required,
+    startDate ZonedDateTime required,
+    endDate ZonedDateTime required,
+    price Long required
+}
+
+//relationship OneToMany {
+//    ExerciseCategory{category} to Invitation
+//}
+//
+//relationship OneToMany {
+//    Customer{customer} to Invitation
+//}
+//
+//relationship OneToMany {
+//    Customer{pass} to Pass
+//}
+//
+//relationship OneToMany {
+//    ExerciseFacility{facility} to Pass
+//}
+//
+//relationship OneToMany {
+//    Partner{partner} to ExerciseFacility
+//}
+
+// Set pagination options
+paginate ExerciseCategory, ExerciseCategory with infinite-scroll
+paginate Invitation, Invitation with infinite-scroll
+paginate Customer, Customer with infinite-scroll
+paginate Partner, Partner with infinite-scroll
+paginate Pass, Pass with infinite-scroll
+
+//dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+//angularSuffix * with mySuffix
