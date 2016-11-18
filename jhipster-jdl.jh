@@ -75,7 +75,10 @@ paginate ExerciseCategory, ExerciseCategory with infinite-scroll
 paginate Invitation, Invitation with infinite-scroll
 paginate Customer, Customer with infinite-scroll
 paginate Partner, Partner with infinite-scroll
+paginate ExerciseFacility, ExerciseFacility with infinite-scroll
 paginate Pass, Pass with infinite-scroll
+
+skipClient for ExerciseCategory
 
 //dto * with mapstruct
 
