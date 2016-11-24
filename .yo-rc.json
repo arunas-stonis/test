@@ -24,6 +24,7 @@
       "gatling"
     ],
     "jhiPrefix": "jhi",
+    "skipClient": true,
     "enableTranslation": true,
     "nativeLanguage": "en",
     "languages": [

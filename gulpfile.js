@@ -130,7 +130,7 @@ gulp.task('ngconstant:prod', function () {
         name: 'myappApp.common',
         constants: {
             VERSION: util.parseVersion(),
-            DEBUG_INFO_ENABLED: false
+            DEBUG_INFO_ENABLED: true
         },
         template: config.constantTemplate,
         stream: true
@@ -190,10 +190,10 @@ gulp.task('install', ['clean'], function () {
     runSequence('copy:temp', ['inject:dep', 'ngconstant:dev', 'copy:deps'], 'copy:languages', 'tscompile', 'inject:troubleshoot');
 });
 
-gulp.task('serve', ['install'], serve);
+gulp.task('serve', serve);
 
 gulp.task('build', ['clean'], function (cb) {
-    runSequence(['copy', 'inject:vendor', 'ngconstant:prod', 'copy:languages'], 'tscompile', 'inject:troubleshoot', 'assets:prod', cb);
+    runSequence(['copy', 'inject:vendor', 'ngconstant:prod', 'copy:deps'], 'copy:languages', 'tscompile', 'inject:troubleshoot', 'assets:prod', cb);
 });
 
 gulp.task('default', ['serve']);

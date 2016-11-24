@@ -70,3 +70,14 @@ jhipster:
             host: localhost
             port: 5000
             queueSize: 512
+    swagger:
+        title: myapp API
+        description: myapp API documentation
+        version: 0.0.1
+        termsOfServiceUrl:
+        contactName:
+        contactUrl:
+        contactEmail:
+        license:
+        licenseUrl:
+
