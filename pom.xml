@@ -11,7 +11,7 @@
 
     <groupId>com.mycompany.myapp</groupId>
     <artifactId>myapp</artifactId>
-    <ve>0.0.1-SNAPSHOT</ve>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>Myapp</name>
 
