@@ -178,6 +178,7 @@ gulp.task('test', ['inject:test', 'ngconstant:dev'], function (done) {
 gulp.task('watch', function () {
     gulp.watch('bower.json', ['install']);
     gulp.watch(['gulpfile.js', 'pom.xml'], ['ngconstant:dev']);
+    gulp.watch(config.app + 'system.config.js');
     gulp.watch(config.app + 'content/css/**/*.css', ['styles']);
     gulp.watch(config.app + 'content/images/**', ['images']);
     gulp.watch(config.app + 'app/**/*.ts', ['tscompile']);

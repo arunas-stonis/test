@@ -1,0 +1,40 @@
+<section class="myapp">
+  <header class="header">
+      <h1>Facilities</h1>
+      <button (click)="addFacility()">Create new</button>
+  </header>
+    <div *ngIf="selectedFacility">
+        <h2>{{selectedFacility.name }} details:</h2>
+        <div>
+            <label>Id: </label>{{selectedFacility.id}}</div>
+        <div>
+            <label>Name: </label>
+            <input [(ngModel)]="selectedFacility.name" placeholder="name" />
+        </div>
+        <div>
+            <label>Adress: </label>
+            <input [(ngModel)]="selectedFacility.address" placeholder="address" />
+        </div>
+        <div>
+            <label>Description: </label>
+            <input [(ngModel)]="selectedFacility.description" placeholder="description" />
+        </div>
+        <button (click)="updateFacility(selectedFacility)">Save</button>
+    </div>
+    <h2>List of facilities:</h2>
+    <section class="main" *ngIf="facilities.length > 0">
+    <ul class="facility-list">
+      <li *ngFor="let facility of facilities"
+        [class.selected]="facility === selectedFacility"
+        (click)="onSelect(facility)">
+        <div class="view">
+          <label>{{facility.name}}</label>
+          <button class="destroy" (click)="removeFacility(facility)">Delete</button>
+        </div>
+      </li>
+    </ul>
+    </section>
+    <footer class="footer" *ngIf="facilities.length > 0">
+        <span class="facility-count">Total amount: <strong>{{facilities.length}}</strong> {{facilities.length == 1 ? 'item' : 'items'}}</span>
+    </footer>
+</section>

@@ -6,3 +6,4 @@ angular
         'ui.bootstrap',
         'infinite-scroll'
     ]);
+

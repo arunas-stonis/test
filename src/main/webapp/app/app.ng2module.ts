@@ -6,6 +6,8 @@ import { Ng2Webstorage } from 'ng2-webstorage';
 import { MyappSharedModule } from './shared';
 import { MyappAdminModule } from './admin/admin.ng2module'; //TODO these couldnt be used from barrels due to an error
 import { MyappAccountModule } from './account/account.ng2module';
+import { MyappEntitytModule } from './entity/entity.ng2module';
+
 
 import { appState } from './app.state';
 import { HomeComponent, homeState } from './home';
@@ -43,7 +45,8 @@ let routerConfig = {
         Ng2Webstorage,
         MyappSharedModule,
         MyappAdminModule,
-        MyappAccountModule
+        MyappAccountModule,
+        MyappEntitytModule
     ],
     declarations: [
         JhiMainComponent,

@@ -26,7 +26,8 @@
         'components' : 'app/components',
         'home' : 'app/home',
         'layouts' : 'app/layouts',
-        'shared' : 'app/shared'
+        'shared' : 'app/shared',
+        'entity' : 'app/entity'
     };
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {
@@ -44,7 +45,8 @@
         'components' : { main: 'index',  defaultExtension: 'js' },
         'home' : { main: 'index',  defaultExtension: 'js' },
         'layouts' : { main: 'index',  defaultExtension: 'js' },
-        'shared' : { main: 'index',  defaultExtension: 'js' }
+        'shared' : { main: 'index',  defaultExtension: 'js' },
+        'entity' : { main: 'index',  defaultExtension: 'js' }
     };
     var ngPackageNames = [
         'common',
@@ -54,7 +56,7 @@
         'http',
         'platform-browser',
         'platform-browser-dynamic',
-        'upgrade',
+        'upgrade'
     ];
 
     // Individual files (~300 requests):

@@ -2,7 +2,7 @@ import * as angular from 'angular';
 
 import './account/account.module';
 import './admin/admin.module';
-import './entities/entity.module';
+import './entity/entity.module';
 
 import { upgradeAdapter } from './upgrade_adapter';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
