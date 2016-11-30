@@ -7,12 +7,16 @@ import {
     ExerciseFacilityAppComponent,
     ExerciseFacilityService,
     entityState,
-    exerciseFacilityState
+    exerciseFacilityState,
+    PartnerComponent,
+    PartnerService,
+    partnerState
 } from './';
 
 let ENTITY_STATES = [
     entityState,
-    exerciseFacilityState
+    exerciseFacilityState,
+    partnerState
 ];
 
 @NgModule({
@@ -21,10 +25,12 @@ let ENTITY_STATES = [
         UIRouterModule.forChild({ states: ENTITY_STATES })
     ],
     declarations: [
-        ExerciseFacilityAppComponent
+        ExerciseFacilityAppComponent,
+        PartnerComponent
     ],
     providers: [
-        ExerciseFacilityService
+        ExerciseFacilityService,
+        PartnerService
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
