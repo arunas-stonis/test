@@ -1,10 +1,21 @@
-deploying to heroku:
+# Instructions 
+
+## Deploying to Heroku:
+
     gulp install
     mvn -Pdev package
     echo heroku login
-    heroku deploy:jar target/*.war --app  arunas-stonis-test
+    heroku deploy:jar target/*.war --app arunas-stonis-test
     heroku logs --tail
+    
+## Creating new entity `partner` with angular-cli
 
+    cd src\main\webapp\
+    mkdir app/entity/partner
+    ng g class entity/partner/partner
+    ng g service entity/partner/partner
+    ng g component entity/partner
+    
 # myapp JHipster
 
 This application was generated using JHipster 3.9.1, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v3.9.1](https://jhipster.github.io/documentation-archive/v3.9.1).
