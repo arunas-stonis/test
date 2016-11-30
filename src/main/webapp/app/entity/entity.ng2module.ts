@@ -4,10 +4,16 @@ import { UIRouterModule } from 'ui-router-ng2';
 import { MyappSharedModule } from '../shared';
 
 import {
+    entityState,
+
     ExerciseFacilityAppComponent,
     ExerciseFacilityService,
-    entityState,
     exerciseFacilityState,
+
+    FacilitySearchComponent,
+    FacilitySearchService,
+    facilitySearchState,
+
     PartnerComponent,
     PartnerService,
     partnerState
@@ -16,6 +22,7 @@ import {
 let ENTITY_STATES = [
     entityState,
     exerciseFacilityState,
+    facilitySearchState,
     partnerState
 ];
 
@@ -26,10 +33,12 @@ let ENTITY_STATES = [
     ],
     declarations: [
         ExerciseFacilityAppComponent,
+        FacilitySearchComponent,
         PartnerComponent
     ],
     providers: [
         ExerciseFacilityService,
+        FacilitySearchService,
         PartnerService
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

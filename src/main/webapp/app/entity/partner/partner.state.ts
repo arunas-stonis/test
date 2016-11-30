@@ -6,7 +6,7 @@ export const partnerState = {
     parent: 'entity',
     url: '/partner',
     data: {
-        authorities: ['ROLE_USER', 'ROLE_ADMIN'],
+        authorities: ['ROLE_ADMIN'],
         pageTitle: 'global.menu.entity.partner'
     },
     views: {
