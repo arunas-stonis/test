@@ -1,10 +1,7 @@
 deploying to heroku:
     gulp install
-    mvn buil
-    cd target
-    jar -cvf0M myapp-0.0.1-SNAPSHOT.war .
-    cd ..
-    heroku login
+    mvn -Pdev package
+    echo heroku login
     heroku deploy:jar target/*.war --app  arunas-stonis-test
     heroku logs --tail
 
