@@ -5,7 +5,7 @@
   },
   "apps": [
     {
-      "root": "src",
+      "root": "src/main/webapp",
       "outDir": "target",
       "assets": [
         "assets",
