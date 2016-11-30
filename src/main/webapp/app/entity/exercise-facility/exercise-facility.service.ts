@@ -60,6 +60,13 @@ export class ExerciseFacilityService {
                .then(facilities => facilities.find(facility => facility.id === id));
   }
 
+    findCoordinates(address: string) : Promise<number[]> {
+        return this.http.get(`api/location-by-adress/${address}`)
+            .toPromise()
+            .then(response => response.json() as number[])
+            .catch(this.handleError);
+    }
+
   handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);

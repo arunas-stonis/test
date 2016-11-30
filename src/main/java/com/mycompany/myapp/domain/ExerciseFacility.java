@@ -37,6 +37,9 @@ public class ExerciseFacility implements Serializable {
     @Field("address")
     private String address;
 
+    @Field("coordinates")
+    private double[] coordinates;
+
     @NotNull
     @Field("description")
     private String description;
@@ -101,6 +104,14 @@ public class ExerciseFacility implements Serializable {
         this.address = address;
     }
 
+    public double[] getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(double[] coordinates) {
+        this.coordinates = coordinates;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -142,6 +153,7 @@ public class ExerciseFacility implements Serializable {
             ", name='" + name + "'" +
             ", categoryId='" + categoryId + "'" +
             ", address='" + address + "'" +
+            ", coordinates='" + coordinates + "'" +
             ", description='" + description + "'" +
             '}';
     }

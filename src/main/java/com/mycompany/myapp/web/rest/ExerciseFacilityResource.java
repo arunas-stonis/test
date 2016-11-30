@@ -30,7 +30,7 @@ import java.util.Optional;
 public class ExerciseFacilityResource {
 
     private final Logger log = LoggerFactory.getLogger(ExerciseFacilityResource.class);
-        
+
     @Inject
     private ExerciseFacilityService exerciseFacilityService;
 
@@ -91,8 +91,7 @@ public class ExerciseFacilityResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<ExerciseFacility>> getAllExerciseFacilities(Pageable pageable)
-        throws URISyntaxException {
+    public ResponseEntity<List<ExerciseFacility>> getAllExerciseFacilities(Pageable pageable) throws URISyntaxException {
         log.debug("REST request to get a page of ExerciseFacilities");
         Page<ExerciseFacility> page = exerciseFacilityService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/exercise-facilities");
@@ -135,4 +134,13 @@ public class ExerciseFacilityResource {
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("exerciseFacility", id.toString())).build();
     }
 
+    @RequestMapping(value = "/location-by-adress/{address}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public Double[] findCoordinates(@PathVariable String address) {
+        log.debug("REST request to get findCoordinates : {}", address);
+        return exerciseFacilityService.findCoordinates(address);
+
+    }
 }

@@ -15,6 +15,13 @@
             <label>Adress: </label>
             <input [(ngModel)]="selectedFacility.address" placeholder="address" />
         </div>
+        <button (click)="findCoordinates()">Find coordinates</button>
+        <div>
+            <label>Coordinates: longitude(x)=</label>
+            <input [(ngModel)]="selectedFacility.coordinates[0]" placeholder="coordinates[0]" />
+            <label>latitude(y)=: </label>
+            <input [(ngModel)]="selectedFacility.coordinates[1]" placeholder="coordinates[1]" />
+        </div>
         <div>
             <label>Description: </label>
             <input [(ngModel)]="selectedFacility.description" placeholder="description" />

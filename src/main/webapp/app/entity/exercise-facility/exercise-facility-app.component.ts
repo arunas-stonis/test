@@ -67,4 +67,11 @@ export class ExerciseFacilityAppComponent implements OnInit {
     this.selectedFacility = facility;
   }
 
+  findCoordinates() : void {
+      console.log('ExerciseFacilityAppComponent.findCoordinates');
+      this.facilityService.findCoordinates(this.selectedFacility.address).then(coordinates => this.selectedFacility.coordinates = coordinates);
+      console.log('result: '+this.selectedFacility.coordinates);
+
+  }
+
 }

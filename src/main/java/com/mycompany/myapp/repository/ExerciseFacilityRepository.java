@@ -1,7 +1,6 @@
 package com.mycompany.myapp.repository;
 
 import com.mycompany.myapp.domain.ExerciseFacility;
-
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
@@ -9,5 +8,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  */
 @SuppressWarnings("unused")
 public interface ExerciseFacilityRepository extends MongoRepository<ExerciseFacility,String> {
+
+//    List<ExerciseFacility> findByPositionWithin(Point c);
 
 }
