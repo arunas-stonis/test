@@ -8,7 +8,9 @@
     heroku deploy:jar target/*.war --app arunas-stonis-test
     heroku logs --tail
     
-## Creating new entity `partner` with angular-cli
+## Creating new entity with angular-cli
+
+Let's asssume that we need a new `partner` entity:
 
     cd src\main\webapp\
     mkdir app/entity/partner
