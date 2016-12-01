@@ -1,10 +1,11 @@
 package com.mycompany.myapp.domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.Objects;
@@ -38,6 +39,7 @@ public class ExerciseFacility implements Serializable {
     private String address;
 
     @Field("coordinates")
+    @GeoSpatialIndexed
     private double[] coordinates;
 
     @NotNull

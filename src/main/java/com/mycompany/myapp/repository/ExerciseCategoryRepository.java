@@ -1,7 +1,6 @@
 package com.mycompany.myapp.repository;
 
 import com.mycompany.myapp.domain.ExerciseCategory;
-
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**

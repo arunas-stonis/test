@@ -33,6 +33,11 @@ spring:
             enabled: false
     thymeleaf:
         mode: XHTML
+    output:
+      ansi:
+        enabled: always
+
+logging.level.*: INFO
 
 security:
     basic:

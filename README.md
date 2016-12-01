@@ -4,7 +4,7 @@
 
     gulp install
     mvn -Pdev package
-    echo heroku login
+    heroku login
     heroku deploy:jar target/*.war --app arunas-stonis-test
     heroku logs --tail
     

@@ -143,4 +143,16 @@ public class ExerciseFacilityResource {
         return exerciseFacilityService.findCoordinates(address);
 
     }
+
+    @RequestMapping(value = "/filter-by-location",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<ExerciseFacility>> filterByLocation(Pageable pageable, @RequestParam("term") String location, @RequestParam("type") String type) throws URISyntaxException {
+        log.debug("REST request to get facilities by location : {} type {}", location, type);
+        return new ResponseEntity<>(exerciseFacilityService.findFacilitiesByLocation(location, type), HttpStatus.OK);
+//        Page<ExerciseFacility> page = exerciseFacilityService.findFacilitiesByLocation(pageable, location);
+//        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/filter-by-location");
+//        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
 }

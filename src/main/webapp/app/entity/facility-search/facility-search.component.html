@@ -1,3 +1,13 @@
-<p>
-  facility-search works!
-</p>
+<div id="facility-search-component">
+    <h4>Facility Search</h4>
+    <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+    <button (click)="search(searchBox.value)">Search</button>
+    <div>
+        <div *ngFor="let facility of facilities | async"
+             (click)="select(facility)" class="search-result" >
+            {{facility.name}}
+        </div>
+    </div>
+    Total: {{(facilities | async)?.length}}
+
+</div>

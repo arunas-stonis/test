@@ -10,9 +10,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.geo.*;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import java.util.List;
 
 /**
  * Service Implementation for managing ExerciseFacility.
@@ -80,8 +82,36 @@ public class ExerciseFacilityServiceImpl implements ExerciseFacilityService{
             result[0] = query[0].geometry.location.lng;
             result[1] = query[0].geometry.location.lat;
         } catch (Exception e) {
-            log.error("Error while searching for coordinates at Google", e);
+            log.info("Error while searching for coordinates at Google", e);
         }
         return result;
     }
+
+    public List<ExerciseFacility> findFacilitiesByLocation(String location) {
+        log.info("Request to get all ExerciseFacilities");
+        Double[] currentLocation = findCoordinates(location);
+        log.info("Cordinates detected x={} y={}", currentLocation[0], currentLocation[1]);
+        Point p = new Point(currentLocation[0], currentLocation[1]);
+        Distance d = new Distance(100000000, Metrics.KILOMETERS);
+        Circle area = new Circle(p, d);
+        return exerciseFacilityRepository.findByCoordinatesWithin(area);
+    }
+
+    private static final int a = 100;
+
+    public List<ExerciseFacility> findFacilitiesByLocation(String location, String type) {
+        log.info("Request to get all ExerciseFacilities");
+        Double[] currentLocation = findCoordinates(location);
+        log.info("Cordinates detected x={} y={}", currentLocation[0], currentLocation[1]);
+        Point p = new Point(currentLocation[0], currentLocation[1]);
+        Distance d = new Distance(a, Metrics.KILOMETERS);
+        Circle c = new Circle(p, d);
+        Box b = new Box(new Point(p.getX()-a/2, p.getY()-a/2), new Point(p.getX()+a/2, p.getY()+a/2) );
+        switch (type) {
+            case "circle": return exerciseFacilityRepository.findByCoordinatesWithin(c);
+            case "box": return exerciseFacilityRepository.findByCoordinatesWithin(b);
+            case "point": default: return exerciseFacilityRepository.findByCoordinatesWithin(p, d);
+        }
+    }
+
 }

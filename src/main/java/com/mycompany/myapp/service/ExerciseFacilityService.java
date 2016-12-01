@@ -4,6 +4,8 @@ import com.mycompany.myapp.domain.ExerciseFacility;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 /**
  * Service Interface for managing ExerciseFacility.
  */
@@ -41,4 +43,7 @@ public interface ExerciseFacilityService {
     void delete(String id);
 
     Double[] findCoordinates(String address);
+
+    List<ExerciseFacility> findFacilitiesByLocation(String location, String type);
+
 }
