@@ -4,7 +4,7 @@ import { JhiLanguageService } from '../shared';
 export const homeState = {
     name: 'home',
     parent: 'app',
-    url: '/',
+    url: '',
     data: {
         authorities: []
     },

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { UIRouterModule, RootModule } from 'ui-router-ng2';
+import { UIRouterModule } from 'ui-router-ng2';
 import { Ng2Webstorage } from 'ng2-webstorage';
 
 import { MyappSharedModule } from './shared';
@@ -35,7 +35,8 @@ let routerConfig = {
         homeState,
         errorState,
         accessdeniedState
-    ]
+    ],
+    useHash: true
 };
 
 @NgModule({

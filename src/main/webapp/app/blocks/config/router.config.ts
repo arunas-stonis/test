@@ -9,7 +9,7 @@ export class JhiRouterConfig {
     constructor(router: UIRouter) {
 
         if (DEBUG_INFO_ENABLED) {
-            trace.enable(Category.TRANSITION);
+            trace.enable(Category.TRANSITION, Category.VIEWCONFIG);
             SystemJS.import('ui-router-visualizer').then(vis => vis.visualizer(router));
         }
 
