@@ -6,7 +6,7 @@
 ######################
 # NativeScript
 ######################
-/src/main/naitiveapp/platforms/**
+/src/main/nativeapp/platforms/**
 /src/main/nativeapp/node_modules/**
 
 ######################
