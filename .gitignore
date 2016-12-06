@@ -4,6 +4,12 @@
 /target/www/**
 
 ######################
+# NativeScript
+######################
+/src/main/nativeapp/platforms/**
+/src/main/nativeapp/node_modules/**
+
+######################
 # Node
 ######################
 /node/**
